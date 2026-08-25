@@ -1,0 +1,36 @@
+title: Suspicious LSASS Process Access (Possible Credential Dumping)
+id: 8f2e4a1c-3b5d-4e7f-9a6c-1d2e3f4a5b6c
+status: test
+description: |
+    Detects a process opening a handle to lsass.exe with access rights
+    associated with credential dumping tools (e.g. Mimikatz). LSASS
+    stores credential material in memory; reading it is a classic
+    T1003.001 technique.
+references:
+    - https://attack.mitre.org/techniques/T1003/001/
+author: Emilio Rodriguez
+date: 2026-08-22
+tags:
+    - attack.credential-access
+    - attack.t1003.001
+logsource:
+    category: process_access
+    product: windows
+detection:
+    selection:
+        TargetImage|endswith: '\lsass.exe'
+        GrantedAccess:
+            - '0x1010'
+            - '0x1410'
+            - '0x1438'
+            - '0x143a'
+            - '0x1fffff'
+    filter_known_edr:
+        SourceImage|endswith:
+            - '\MsMpEng.exe'
+            - '\SenseIR.exe'
+    condition: selection and not filter_known_edr
+falsepositives:
+    - Legitimate EDR/AV products reading LSASS memory for scanning (excluded via filter)
+    - Debugging tools used by administrators
+level: high

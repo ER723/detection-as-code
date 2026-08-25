@@ -1,0 +1,22 @@
+{
+  "true_positives": [
+    {
+      "name": "full flag encoded command",
+      "log": {"Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe -EncodedCommand SQBFAFgA"}
+    },
+    {
+      "name": "abbreviated -enc flag",
+      "log": {"Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell -enc JABzAD0A"}
+    }
+  ],
+  "true_negatives": [
+    {
+      "name": "normal powershell command, no encoding",
+      "log": {"Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "CommandLine": "powershell.exe Get-Process"}
+    },
+    {
+      "name": "encoded flag text but wrong process",
+      "log": {"Image": "C:\\Windows\\System32\\cmd.exe", "CommandLine": "cmd.exe /c -enc test"}
+    }
+  ]
+}

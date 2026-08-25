@@ -1,0 +1,26 @@
+{
+  "true_positives": [
+    {
+      "name": "mimikatz-style access, non-EDR source",
+      "log": {"TargetImage": "C:\\Windows\\System32\\lsass.exe", "GrantedAccess": "0x1fffff", "SourceImage": "C:\\Users\\victim\\Downloads\\suspicious.exe"}
+    },
+    {
+      "name": "another suspicious access mask",
+      "log": {"TargetImage": "C:\\Windows\\System32\\lsass.exe", "GrantedAccess": "0x1410", "SourceImage": "C:\\Temp\\tool.exe"}
+    }
+  ],
+  "true_negatives": [
+    {
+      "name": "legitimate EDR reading LSASS",
+      "log": {"TargetImage": "C:\\Windows\\System32\\lsass.exe", "GrantedAccess": "0x1fffff", "SourceImage": "C:\\Program Files\\Windows Defender\\MsMpEng.exe"}
+    },
+    {
+      "name": "unrelated process, not LSASS",
+      "log": {"TargetImage": "C:\\Windows\\System32\\notepad.exe", "GrantedAccess": "0x1fffff", "SourceImage": "C:\\Users\\victim\\explorer.exe"}
+    },
+    {
+      "name": "LSASS access with benign access mask",
+      "log": {"TargetImage": "C:\\Windows\\System32\\lsass.exe", "GrantedAccess": "0x0400", "SourceImage": "C:\\Windows\\System32\\svchost.exe"}
+    }
+  ]
+}

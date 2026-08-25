@@ -1,0 +1,19 @@
+{
+  "_provenance": "True positive and both true negatives captured from genuine command execution on a real macOS host (not synthetic), 2026-08-23. See repo README for the exact commands run.",
+  "true_positives": [
+    {
+      "name": "real interactive crontab edit (crontab -e, real zsh shell)",
+      "log": {"CommandLine": "crontab -e", "ParentCommandLine": "/bin/zsh"}
+    }
+  ],
+  "true_negatives": [
+    {
+      "name": "real Homebrew command (brew list)",
+      "log": {"CommandLine": "brew list", "ParentCommandLine": "/opt/homebrew/bin/brew"}
+    },
+    {
+      "name": "real unrelated command (ls -la), username redacted",
+      "log": {"CommandLine": "ls -la /Users/[redacted]", "ParentCommandLine": "/bin/zsh"}
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+title: New Cron Job Created for Persistence
+id: 6d9c2b5e-8a1f-4c3d-b7e6-5f4a3b2c1d0e
+status: test
+description: |
+    Detects creation or modification of a crontab entry, a common
+    Unix persistence technique. Legitimate package installs also
+    create cron entries, so this is tuned to flag entries created by
+    interactive shell sessions rather than package managers.
+    Tested with genuinely captured real command execution on macOS
+    (not synthetic fixtures) — see tests/fixtures/cron_persistence.json.
+references:
+    - https://attack.mitre.org/techniques/T1053/003/
+author: Emilio Rodriguez
+date: 2026-08-22
+tags:
+    - attack.persistence
+    - attack.t1053.003
+logsource:
+    category: process_creation
+    product: macos
+detection:
+    selection:
+        CommandLine|contains:
+            - 'crontab -e'
+            - 'crontab -l'
+            - '>> /etc/crontab'
+            - '/etc/cron.d/'
+    filter_package_manager:
+        ParentCommandLine|contains:
+            - 'brew'
+            - 'Homebrew'
+    condition: selection and not filter_package_manager
+falsepositives:
+    - System administrators legitimately editing their own crontab
+    - Automated deployment/config-management tools (Ansible, Puppet, Chef)
+level: medium

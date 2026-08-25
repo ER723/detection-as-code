@@ -1,0 +1,33 @@
+title: PowerShell Execution with Encoded Command
+id: 2a7f5c9e-4b3d-4a6e-8c1f-9d0e5f4a3b2c
+status: test
+description: |
+    Detects PowerShell invoked with -EncodedCommand (or the -enc/-e
+    abbreviations), a very common technique to obfuscate malicious
+    commands and evade simple string-based detection. Legitimate use
+    exists (some deployment tooling encodes commands to avoid shell
+    quoting issues) but is rare enough to warrant review.
+references:
+    - https://attack.mitre.org/techniques/T1059/001/
+author: Emilio Rodriguez
+date: 2026-08-22
+tags:
+    - attack.execution
+    - attack.defense-evasion
+    - attack.t1059.001
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_img:
+        Image|endswith: '\powershell.exe'
+    selection_flag:
+        CommandLine|contains:
+            - '-EncodedCommand'
+            - '-enc '
+            - '-e '
+    condition: selection_img and selection_flag
+falsepositives:
+    - Some legitimate deployment/config-management tools encode commands
+      to avoid shell quoting issues
+level: medium
