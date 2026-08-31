@@ -1,0 +1,18 @@
+Real, complete pytest output — captured from an actual run, committed as plain
+text so it's readable by anyone visiting this repo, with no GitHub sign-in
+required (unlike the live Actions log viewer, which does require an account).
+
+============================= test session starts ==============================
+platform darwin -- Python 3.14.6, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/opt/python@3.14/bin/python3.14
+cachedir: .pytest_cache
+rootdir: /Users/absolutelyoutsourcing/detection-as-code
+collected 6 items
+
+tests/test_rules.py::test_true_positives_fire[lsass_access--] PASSED                                                                  [ 16%]
+tests/test_rules.py::test_true_positives_fire[powershell_encoded_command--] PASSED                                                    [ 33%]
+tests/test_rules.py::test_true_positives_fire[cron_persistence--] PASSED                                                              [ 50%]
+tests/test_rules.py::test_true_negatives_do_not_fire[lsass_access--] PASSED                                                           [ 66%]
+tests/test_rules.py::test_true_negatives_do_not_fire[powershell_encoded_command--] PASSED                                             [ 83%]
+tests/test_rules.py::test_true_negatives_do_not_fire[cron_persistence--] PASSED                                                       [100%]
+
+============================================================= 6 passed in 0.06s =============================================================

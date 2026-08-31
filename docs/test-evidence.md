@@ -19,13 +19,12 @@ SHELL_IN_USE: /bin/zsh
 
 The exact `CommandLine` (`crontab -e`) and `ParentCommandLine` (`/bin/zsh`) values in [`tests/fixtures/cron_persistence.json`](../tests/fixtures/cron_persistence.json) come directly from this real session — not invented.
 
-## 2. Live, publicly-viewable CI run
+## 2. CI proof without needing to sign in
 
-This isn't a screenshot claim — anyone can click through and see the actual logs, no login required, since this is a public repository:
+GitHub requires a free account to view detailed Actions logs, even on public repos — this is a GitHub platform policy, not something specific to this repo. Two things work around that, visible to anyone with zero clicks:
 
-**[View the live Actions run](https://github.com/ER723/detection-as-code/actions)**
-
-Expand the `test` step in any run to see the real `pytest` output, including every individual test name and its pass/fail result — not just a collapsed "Success" badge.
+- The badge at the top of this README — a live, auto-updating pass/fail image
+- [`docs/sample-test-run.txt`](sample-test-run.txt) — the actual real pytest output, committed as plain text, readable by anyone
 
 ## 3. How to reproduce locally
 

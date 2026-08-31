@@ -1,3 +1,5 @@
+![Tests](https://github.com/ER723/detection-as-code/actions/workflows/test.yml/badge.svg)
+
 # Detection-as-Code — Tested Sigma Rules with CI
 
 Three vendor-agnostic Sigma detection rules, each covering a distinct, well-documented MITRE ATT&CK technique, with an automated test suite that verifies every rule against real true-positive and true-negative log fixtures on every push.
