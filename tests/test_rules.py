@@ -8,8 +8,9 @@ and each true-negative fixture does not. Run with: pytest tests/
 
 import json
 import os
-import yaml
+
 import pytest
+import yaml
 from sigma_evaluator import evaluate
 
 RULES_DIR = os.path.join(os.path.dirname(__file__), "..", "rules")

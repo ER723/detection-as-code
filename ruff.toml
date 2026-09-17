@@ -1,0 +1,10 @@
+# Ruff configuration — fast Python linter/formatter
+line-length = 100
+target-version = "py312"
+
+[lint]
+select = ["E", "F", "W", "I"]  # pycodestyle errors/warnings, pyflakes, import sorting
+ignore = ["E501"]  # line length handled by formatter, not enforced strictly here
+
+[format]
+quote-style = "double"
