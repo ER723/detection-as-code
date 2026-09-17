@@ -1,5 +1,7 @@
 ![Tests](https://github.com/ER723/detection-as-code/actions/workflows/test.yml/badge.svg)
 
+**[See the tests actually running →](https://github.com/ER723/detection-as-code/actions)**
+
 # Detection-as-Code — Tested Sigma Rules with CI
 
 Three vendor-agnostic Sigma detection rules, each covering a distinct, well-documented MITRE ATT&CK technique, with an automated test suite that verifies every rule against real true-positive and true-negative log fixtures on every push.
@@ -20,7 +22,7 @@ Most Sigma rules are written once and never verified against real sample data. T
 
 Every "near-miss" fixture exists specifically to prove the rule's filter logic works — not just that it matches obvious cases, but that it correctly *excludes* the specific benign scenarios it's designed to exclude.
 
-## How it's tested
+## Installation & Usage
 
 `tests/sigma_evaluator.py` is a small, honestly-scoped evaluator — **not a full SIEM query engine**. It implements enough of the Sigma detection spec (field modifiers, AND/OR/NOT logic) to verify selection logic against fixtures. Real deployment still goes through `sigma-cli` to convert rules to a real backend (Splunk, Elastic, Sentinel, etc.) — this harness tests the *logic*, not full-scale query execution.
 
