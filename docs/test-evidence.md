@@ -1,5 +1,3 @@
-**Real test evidence:** [`docs/test-evidence.md`](docs/test-evidence.md)
-
 # Test Evidence
 
 Real, verifiable evidence that the tests in this repo were genuinely executed — not just written and claimed to pass.
