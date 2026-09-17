@@ -31,8 +31,8 @@ pytest tests/ -v
 
 ## CI
 
-Every push and pull request runs the full test suite via GitHub Actions — see the badge/checkmark on this repo, or `.github/workflows/test.yml`.
+Every push and pull request runs the full test suite via GitHub Actions — see the badge/checkmark on this repo, or `.github/workflows/test.yml`. Detailed CI logs require GitHub sign-in (platform limitation, not specific to this repo) — see [`docs/test-evidence.md`](docs/test-evidence.md) for real, publicly-viewable proof requiring no account.
 
 ## Relationship to other projects
 
-This is intentionally separate from my [SOC escalation pipeline](https://github.com/ER723/Automated-SOC-Tier-1-to-Tier-2-Escalation-Pipeline) — that project demonstrates building and operating a live detection/response system; this one demonstrates detection-engineering methodology in isolation. Different skills, kept as different projects deliberately.
+This is intentionally separate from my [SOC escalation pipeline](https://github.com/ER723/soc-pipeline)
