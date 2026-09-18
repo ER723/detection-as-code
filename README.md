@@ -1,4 +1,5 @@
 ![Tests](https://github.com/ER723/detection-as-code/actions/workflows/test.yml/badge.svg)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ER723/detection-as-code/badge)](https://scorecard.dev/viewer/?uri=github.com/ER723/detection-as-code)
 
 **[See the tests actually running →](https://github.com/ER723/detection-as-code/actions)**
 
